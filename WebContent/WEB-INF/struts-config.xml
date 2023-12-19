@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+    <form-beans>
+        <form-bean name="formData" type="com.training.bank.vo.FormData"/>
+    </form-beans>
+    <action-mappings>
+    
+        <action path="/LoginAction" type="com.training.bank.action.LoginAction" parameter="action">
+            <!-- 登入成功進入操作首  -->
+            <forward name="success" path="/BankAction.do?action=queryAllAccount" redirect="true"/>
+            <!-- 登入失敗重回登入頁面 -->
+            <forward name="fail" path="/BankLogin.jsp"/>
+        </action>
+        
+<!--         <action path="/BankAction" type="com.training.bank.action.BankAction" parameter="action" name="formData"> -->
+        <action path="/BankAction" type="com.training.bank.action.BankActionAjax" parameter="action" name="formData">
+        	<!-- 帳戶列表 -->	
+            <forward name="accountListView" path="/WEB-INF/view/Bank_AccountList.jsp"/>
+            
+            <!-- 帳戶修改 -->
+            <!-- 
+            	由於頁面移至了WEB-INF底下須使用forward(轉向)的方式才能訪問，但此為交易的動作為避免交易因重整而重覆執行，
+            	故將訪問頁面的行為獨立出來並透過redirect(重導)的方式連結 
+            -->
+            <forward name="accountModify" path="/BankAction.do?action=modifyAccountView" redirect="true"/>
+<!--             <forward name="accountModifyView" path="/WEB-INF/view/Bank_AccountModify.jsp"/> -->
+            <forward name="accountModifyView" path="/WEB-INF/view/Bank_AccountModifyAjax.jsp"/>
+
+            <!-- 帳戶新增-->
+            <forward name="accountCreate" path="/BankAction.do?action=createAccountView" redirect="true"/>
+            <forward name="accountCreateView" path="/WEB-INF/view/Bank_AccountCreate.jsp"/>
+            
+            <!-- 此為交易刪除功能所以 redirect 至 queryAllAccount 方法 -->
+            <forward name="deleteAccountRedirect" path="/BankAction.do?action=queryAllAccount" redirect="true"/>
+        </action>
+        
+    </action-mappings>
+</struts-config>

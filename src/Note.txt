@@ -1,0 +1,40 @@
+﻿測試網址 -> http://localhost:8085/FirstWebApp/BankLogin.jsp
+
+
+   <Resource
+     auth="Container" 
+   	 name="jdbc/oracle"
+   	 type="javax.sql.DataSource"
+	 driverClassName="oracle.jdbc.OracleDriver"
+	 url="jdbc:oracle:thin:@localhost:1521:xe"
+	 username="LOCAL"
+	 password="root"
+	 maxTotal="20" 
+	 maxActive="20"
+	 maxIdle="10"
+	 maxWaitMillis="-1"
+   />
+一.安裝GIT
+https://github.com/git-for-windows/git/releases/download/v2.39.2.windows.1/Git-2.39.2-64-bit.exe
+
+二.安裝 TortoiseGit
+https://download.tortoisegit.org/tgit/2.14.0.0/TortoiseGit-2.14.0.0-64bit.msi
+
+三.建立 Github 帳號 signup
+
+四.建立GIT repositories
+
+五.git clone
+
+撰寫 README.md
+使用工具撰寫Markdown文件 https://dillinger.io/
+
+drawio-desktop
+https://github.com/jgraph/drawio-desktop/releases/download/v20.8.16/draw.io-20.8.16-windows-installer.exe
+
+WEB專題簡報內容 PPT UML
+1. 使用者案例圖(Use Case Diagram)
+2. 活動圖(Activity Diagrams)
+3. 實體關係圖(Entity Relationship Diagram)
+4. 系統畫面擷圖 (功能描述)
+5. 開發使用技術
